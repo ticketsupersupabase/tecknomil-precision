@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Play } from "lucide-react";
 import droneHero from "@/assets/drone-hero.jpg";
+import logoTecknomil from "@/assets/logo-tecknomil-main.jpeg";
 
-// HERO SECTION - Main Landing Visual
+// SECTION: HERO SECTION - Main Landing Visual with Logo
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -12,11 +13,11 @@ const HeroSection = () => {
         <img
           src={droneHero}
           alt="Drone Technology"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-30"
         />
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        {/* Gradient Overlays - Dark Blue Theme */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
       </div>
 
       {/* Tech Grid Overlay */}
@@ -31,12 +32,33 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="container relative z-10 pt-20">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* SECTION: HERO LOGO - Circular Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mb-10"
+          >
+            <div className="inline-block relative">
+              {/* Circular Logo Container with white background */}
+              <div className="w-40 h-40 md:w-52 md:h-52 lg:w-64 lg:h-64 rounded-full bg-white p-4 shadow-tech mx-auto flex items-center justify-center overflow-hidden">
+                <img
+                  src={logoTecknomil}
+                  alt="Tecknomil Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl -z-10" />
+            </div>
+          </motion.div>
+
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 mb-8"
           >
             <span className="w-2 h-2 bg-primary animate-pulse" />
@@ -45,11 +67,11 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Main Heading - Tecknomil highlighted */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wide text-foreground leading-tight mb-6"
           >
             Soluciones Tecnológicas para un{" "}
@@ -60,8 +82,8 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
             Desarrollo, diseño y tecnología para sectores Urbano, Rural e Industrial. 
             Especialistas en seguridad aérea y sistemas de precisión.
@@ -71,8 +93,8 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link
               to="/drones"
@@ -90,27 +112,21 @@ const HeroSection = () => {
             </Link>
           </motion.div>
 
-          {/* Stats */}
+          {/* SECTION: STATS - Solo Experiencia */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-16 pt-8 border-t border-border/50 grid grid-cols-3 gap-8"
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mt-16 pt-8 border-t border-border/50 flex justify-center"
           >
-            {[
-              { value: "10+", label: "Años de Experiencia" },
-              { value: "500+", label: "Proyectos Entregados" },
-              { value: "24/7", label: "Soporte Técnico" },
-            ].map((stat, index) => (
-              <div key={index}>
-                <div className="font-display text-2xl md:text-3xl text-primary mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-xs md:text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
+            <div className="text-center px-12">
+              <div className="font-display text-3xl md:text-4xl text-primary mb-2">
+                10+
               </div>
-            ))}
+              <div className="text-sm md:text-base text-muted-foreground">
+                Años de Experiencia
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
