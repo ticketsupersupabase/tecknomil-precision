@@ -63,7 +63,7 @@ Mensaje: ${formData.mensaje}`;
               Hablemos de Ingeniería
             </h1>
             <p className="text-lg text-muted-foreground">
-              Cuéntenos sobre su proyecto. Nuestro equipo de especialistas 
+              Nit. 90091997520 Cuéntenos sobre su proyecto. Nuestro equipo de especialistas 
               responderá en menos de 24 horas.
             </p>
           </motion.div>
@@ -85,21 +85,7 @@ Mensaje: ${formData.mensaje}`;
               </h2>
 
               <div className="space-y-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-sm tracking-wider text-foreground mb-1">
-                      OFICINA PRINCIPAL
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Polo Club, Calle 87 #22a-08<br />
-                      Bogotá, Colombia
-                    </p>
-                  </div>
-                </div>
-
+                
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-primary" />
@@ -126,10 +112,10 @@ Mensaje: ${formData.mensaje}`;
                       CORREO
                     </h3>
                     <a
-                      href="mailto:info@tecknomil.com"
+                      href="contratamozt@mozt.com.co"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      info@tecknomil.com
+                      contratamozt@mozt.com.co
                     </a>
                   </div>
                 </div>
