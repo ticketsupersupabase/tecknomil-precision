@@ -28,7 +28,7 @@ const Index = () => {
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Seguridad Industrial",
+      title: "Seguridad Industrial" ,
       description:
         "Equipos de inspección, bodycams y sistemas de seguridad para entornos industriales y operaciones críticas.",
       image: endoscope,

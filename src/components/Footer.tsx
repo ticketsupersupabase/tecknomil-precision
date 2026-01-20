@@ -47,13 +47,7 @@ const Footer = () => {
               CONTACTO
             </h4>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <p className="text-background/70 text-sm">
-                  Polo Club, Calle 87 #22a-08<br />
-                  Bogotá, Colombia
-                </p>
-              </div>
+              
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a 
@@ -66,10 +60,10 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a 
-                  href="mailto:info@tecknomil.com" 
+                  href="contratamozt@mozt.com" 
                   className="text-background/70 hover:text-primary transition-colors text-sm"
                 >
-                  info@tecknomil.com
+                  contratamozt@mozt.com
                 </a>
               </div>
             </div>

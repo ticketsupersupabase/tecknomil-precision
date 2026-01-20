@@ -63,7 +63,7 @@ const HeroSection = () => {
           >
             <span className="w-2 h-2 bg-primary animate-pulse" />
             <span className="font-display text-xs tracking-widest text-primary">
-              TECNOLOGÍA MILITAR
+              TECNOLOGÍA MILITAR SAS Nit. 9009197520
             </span>
           </motion.div>
 
