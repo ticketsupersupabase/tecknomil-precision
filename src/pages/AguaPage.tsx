@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Droplets, Wind, Gauge, ThermometerSun } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Droplets, Wind, Gauge, ThermometerSun, ArrowRight, Factory, Shield } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import ProductCard from "@/components/ProductCard";
 import waterGenerator from "@/assets/water-generator.jpg";
 
 // WATER GENERATORS PAGE - Ecoloblue atmospheric water generators
@@ -29,48 +29,34 @@ const AguaPage = () => {
     },
   ];
 
+  // CATALOG: Ecoloblue products with differentiation
   const products = [
     {
       image: waterGenerator,
       title: "Ecoloblue 30",
-      description:
-        "Generador compacto ideal para hogares y oficinas pequeñas. Diseño elegante que se integra perfectamente en cualquier espacio.",
-      specs: [
-        "Capacidad: 30 Litros/día",
-        "Consumo: 350W",
-        "Humedad mínima: 35%",
-        "Dimensiones: 40x40x90 cm",
-      ],
-      whatsappMessage:
-        "Hola Tecknomil, me interesa el Ecoloblue 30 para uso doméstico.",
+      capacity: "30 Litros/día",
+      segment: "Hogar / Oficina",
+      description: "Generador compacto ideal para hogares y oficinas pequeñas. Diseño elegante.",
+      icon: <Droplets className="w-4 h-4" />,
+      link: "/productos/ecoloblue-30",
     },
     {
       image: waterGenerator,
       title: "Ecoloblue 1000",
-      description:
-        "Solución industrial para empresas, hoteles y comunidades. Alto rendimiento con bajo consumo energético.",
-      specs: [
-        "Capacidad: 1,000 Litros/día",
-        "Consumo: 4.5 kW",
-        "Humedad mínima: 30%",
-        "Montaje: Exterior/Interior",
-      ],
-      whatsappMessage:
-        "Hola Tecknomil, necesito información sobre el Ecoloblue 1000 para uso industrial.",
+      capacity: "1,000 Litros/día",
+      segment: "Industrial",
+      description: "Solución industrial para empresas, hoteles y comunidades. Alto rendimiento.",
+      icon: <Factory className="w-4 h-4" />,
+      link: "/productos/ecoloblue-1000",
     },
     {
       image: waterGenerator,
       title: "Ecoloblue 10000",
-      description:
-        "Sistema de emergencia y aplicación militar. Capacidad masiva para operaciones humanitarias y bases remotas.",
-      specs: [
-        "Capacidad: 10,000 Litros/día",
-        "Autonomía: Energía solar compatible",
-        "Transportable: Contenedor estándar",
-        "Uso: Militar/Emergencias",
-      ],
-      whatsappMessage:
-        "Hola Tecknomil, requiero cotización del Ecoloblue 10000 para operaciones de emergencia.",
+      capacity: "10,000 Litros/día",
+      segment: "Militar / Emergencias",
+      description: "Sistema de emergencia en contenedor. Capacidad masiva para operaciones humanitarias.",
+      icon: <Shield className="w-4 h-4" />,
+      link: "/productos/ecoloblue-10000",
     },
   ];
 
@@ -107,7 +93,7 @@ const AguaPage = () => {
           <SectionHeader
             badge="Tecnología"
             title="Agua Potable del Aire"
-            description="Nuestros generadores atmosféricos convierten la humedad del ambiente en agua pura y segura para el consumo."
+            description="Nuestros generadores atmosféricos convierten la humedad del ambiente en agua pura y segura."
           />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -122,7 +108,6 @@ const AguaPage = () => {
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary mb-6 relative">
                   {step.icon}
-                  {/* Connector Line */}
                   {index < howItWorks.length - 1 && (
                     <div className="hidden lg:block absolute left-full top-1/2 w-full h-px bg-border -translate-y-1/2" />
                   )}
@@ -133,16 +118,14 @@ const AguaPage = () => {
                 <h3 className="font-display text-xl tracking-wide text-foreground mb-2">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">
-                  {step.description}
-                </p>
+                <p className="text-muted-foreground text-sm">{step.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PRODUCTS CATALOG */}
+      {/* PRODUCTS CATALOG - Differentiated */}
       <section className="section-padding bg-background-alt">
         <div className="container">
           <SectionHeader
@@ -151,20 +134,47 @@ const AguaPage = () => {
             description="Desde soluciones domésticas hasta sistemas industriales de alto rendimiento."
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <ProductCard
+              <motion.div
                 key={product.title}
-                {...product}
-                delay={index * 0.1}
-              />
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Link to={product.link} className="block card-tech overflow-hidden group h-full">
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 bg-primary text-primary-foreground">
+                      {product.icon}
+                      <span className="font-display text-xs tracking-wider">{product.segment}</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-display text-xl tracking-wide text-foreground mb-1 group-hover:text-primary transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-primary font-display text-lg mb-3">{product.capacity}</p>
+                    <p className="text-muted-foreground text-sm mb-4">{product.description}</p>
+                    <span className="inline-flex items-center gap-2 text-primary font-medium text-sm tracking-wide">
+                      Ver especificaciones
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* BENEFITS */}
-      <section className="py-20 bg-foreground">
+      <section className="py-20 bg-muted">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {[
@@ -179,10 +189,8 @@ const AguaPage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="font-display text-5xl text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-background/70">{stat.label}</div>
+                <div className="font-display text-5xl text-primary mb-2">{stat.value}</div>
+                <div className="text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
           </div>

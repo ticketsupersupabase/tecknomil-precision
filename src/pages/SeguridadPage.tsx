@@ -1,53 +1,52 @@
 import { motion } from "framer-motion";
-import { Shield, Camera, Eye, Lightbulb } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Shield, Camera, Eye, Lightbulb, Cable, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import ProductCard from "@/components/ProductCard";
 import endoscope from "@/assets/endoscope.jpg";
 
 // SECURITY & INDUSTRY PAGE - Industrial inspection and safety equipment
 const SeguridadPage = () => {
+  // CATALOG: Complete product list with detail page links
   const products = [
     {
       image: endoscope,
-      title: "Video Endoscopio TFXC0139",
-      description:
-        "Sistema de inspección industrial de alta precisión para tuberías, motores y espacios confinados. Sonda flexible con articulación 360°.",
-      specs: [
-        "Resolución: 1920x1080 Full HD",
-        "Sonda: 6mm diámetro, 3m longitud",
-        "Articulación: 360° bidireccional",
-        "Iluminación: LED ajustable",
-      ],
-      whatsappMessage:
-        "Hola Tecknomil, me interesa el Video Endoscopio TFXC0139 para inspección industrial.",
+      title: "Video Endoscopio TF3319HLMX80",
+      description: "Sistema de inspección con grabadora HD integrada. Monitor 7\" LCD y articulación 360°.",
+      badge: "GRABADORA HD",
+      icon: <Eye className="w-4 h-4" />,
+      link: "/productos/endoscopio-tf3319",
+    },
+    {
+      image: endoscope,
+      title: "Video Endoscopio TF3309H80",
+      description: "Endoscopio compacto con monitor simple. Sonda ultrafina 5.5mm para accesos reducidos.",
+      badge: "COMPACTO",
+      icon: <Eye className="w-4 h-4" />,
+      link: "/productos/endoscopio-tf3309",
+    },
+    {
+      image: endoscope,
+      title: "Extensión TFXC0139",
+      description: "Cable de extensión profesional de 10m. Compatible con serie TF, apilable hasta 80m.",
+      badge: "ACCESORIO",
+      icon: <Cable className="w-4 h-4" />,
+      link: "/productos/extension-tfxc0139",
+    },
+    {
+      image: endoscope,
+      title: "Morral LED MTL171244",
+      description: "Morral táctico con panel LED programable. Señales direccionales y control remoto.",
+      badge: "VISIBILIDAD",
+      icon: <Lightbulb className="w-4 h-4" />,
+      link: "/productos/morral-led",
     },
     {
       image: endoscope,
       title: "Cámara Bodycam TF3102WHD",
-      description:
-        "Cámara corporal de grado policial con visión nocturna infrarroja. Ideal para seguridad privada y operaciones tácticas.",
-      specs: [
-        "Resolución: 1280x720 HD",
-        "Visión nocturna: IR hasta 10m",
-        "Batería: 12 horas continuas",
-        "Almacenamiento: 64GB interno",
-      ],
-      whatsappMessage:
-        "Hola Tecknomil, necesito información sobre la Bodycam TF3102WHD para seguridad.",
-    },
-    {
-      image: endoscope,
-      title: "Morral LED de Seguridad",
-      description:
-        "Morral táctico con sistema de iluminación LED integrado para operaciones nocturnas y alta visibilidad en emergencias.",
-      specs: [
-        "Capacidad: 25 litros",
-        "LEDs: Panel posterior reflectivo",
-        "Modos: Fijo, intermitente, SOS",
-        "Material: Cordura 1000D",
-      ],
-      whatsappMessage:
-        "Hola Tecknomil, quiero cotizar el Morral LED de Seguridad para operaciones nocturnas.",
+      description: "Bodycam grado policial con visión nocturna IR y GPS integrado. 12h de batería.",
+      badge: "GRADO POLICIAL",
+      icon: <Camera className="w-4 h-4" />,
+      link: "/productos/bodycam-tf3102",
     },
   ];
 
@@ -131,11 +130,37 @@ const SeguridadPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <ProductCard
+              <motion.div
                 key={product.title}
-                {...product}
-                delay={index * 0.1}
-              />
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Link to={product.link} className="block card-tech overflow-hidden group">
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 bg-primary text-primary-foreground">
+                      {product.icon}
+                      <span className="font-display text-xs tracking-wider">{product.badge}</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-display text-lg tracking-wide text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-4">{product.description}</p>
+                    <span className="inline-flex items-center gap-2 text-primary font-medium text-sm tracking-wide">
+                      Ver detalles
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
