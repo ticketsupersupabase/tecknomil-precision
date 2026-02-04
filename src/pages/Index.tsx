@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { Plane, Droplets, Shield, ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
-import droneHero from "@/assets/drone-hero.jpg";
+import MisionVisionSection from "@/components/MisionVisionSection";
+import droneProfesional from "@/assets/drone-profesional.png";
 import waterGenerator from "@/assets/water-generator.jpg";
 import endoscope from "@/assets/endoscope.jpg";
 
@@ -15,7 +16,7 @@ const Index = () => {
       title: "Drones & Antidrones",
       description:
         "Sistemas UAS y C-UAS de última generación para vigilancia, inspección y neutralización de amenazas aéreas.",
-      image: droneHero,
+      image: droneProfesional,
       link: "/drones",
     },
     {
@@ -40,6 +41,9 @@ const Index = () => {
     <main>
       {/* HERO SECTION */}
       <HeroSection />
+
+      {/* MISION Y VISION SECTION */}
+      <MisionVisionSection />
 
       {/* DIVISIONS SECTION */}
       <section className="section-padding bg-background-alt">
@@ -152,9 +156,9 @@ const Index = () => {
             >
               <div className="aspect-square bg-muted relative overflow-hidden">
                 <img
-                  src={droneHero}
+                  src={droneProfesional}
                   alt="Technology"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 <div className="absolute inset-0 bg-grid opacity-30" />
               </div>

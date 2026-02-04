@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Play } from "lucide-react";
-import droneHero from "@/assets/drone-hero.jpg";
-import logoTecknomil from "@/assets/logo-tecknomil-main.jpeg";
+import droneProfesional from "@/assets/drone-profesional.png";
+import logoTeknomil from "@/assets/logo-teknomil.png";
 
 // SECTION: HERO SECTION - Main Landing Visual with Logo
 const HeroSection = () => {
@@ -11,9 +11,9 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={droneHero}
-          alt="Drone Technology"
-          className="w-full h-full object-cover opacity-30"
+          src={droneProfesional}
+          alt="Drone Profesional Teknomil"
+          className="w-full h-full object-contain object-center opacity-40"
         />
         {/* Gradient Overlays - Dark Blue Theme */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
@@ -41,16 +41,16 @@ const HeroSection = () => {
             className="mb-10"
           >
             <div className="inline-block relative">
-              {/* Circular Logo Container with white background */}
-              <div className="w-40 h-40 md:w-52 md:h-52 lg:w-64 lg:h-64 rounded-full bg-white p-4 shadow-tech mx-auto flex items-center justify-center overflow-hidden">
+              {/* SECTION: HERO LOGO - Teknomil crosshair logo with proper sizing */}
+              <div className="w-48 h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full bg-white p-2 shadow-tech mx-auto flex items-center justify-center overflow-hidden">
                 <img
-                  src={logoTecknomil}
-                  alt="Tecknomil Logo"
-                  className="w-full h-full object-contain"
+                  src={logoTeknomil}
+                  alt="Teknomil Logo"
+                  className="w-[95%] h-[95%] object-contain"
                 />
               </div>
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl -z-10" />
+              <div className="absolute inset-0 rounded-full bg-primary/30 blur-2xl -z-10" />
             </div>
           </motion.div>
 
