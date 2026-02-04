@@ -3,7 +3,7 @@ import { Plane, ShieldAlert, Zap, Radio } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import StickyScrollSection from "@/components/StickyScrollSection";
 import ProductCard from "@/components/ProductCard";
-import droneHero from "@/assets/drone-hero.jpg";
+import droneProfesional from "@/assets/drone-profesional.png";
 import antidroneSystem from "@/assets/antidrone-system.jpg";
 
 // DRONES PAGE - Main drone and antidrone division showcase
@@ -31,7 +31,7 @@ const DronesPage = () => {
 
   const products = [
     {
-      image: droneHero,
+      image: droneProfesional,
       title: "Drone Inspector Powerline",
       description:
         "Sistema UAS de inspección industrial para líneas de transmisión y torres de energía. Cámara térmica integrada y autonomía extendida.",
@@ -88,7 +88,7 @@ const DronesPage = () => {
       </section>
 
       {/* STICKY SCROLL SECTION */}
-      <StickyScrollSection image={droneHero} sections={stickySections} />
+      <StickyScrollSection image={droneProfesional} sections={stickySections} />
 
       {/* PRODUCTS CATALOG */}
       <section className="section-padding bg-background">
